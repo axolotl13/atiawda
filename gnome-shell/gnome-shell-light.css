@@ -414,7 +414,7 @@ StEntry {
 /* OSD Elements */
 #LookingGlassDialog, .screenshot-ui-panel, .workspace-switcher, .switcher-list, .resize-popup, .osd-window {
   color: #ffffff;
-  background-color: set-mix(-st-accent-color, #2e2e33, 10%);
+  background-color: st-mix(-st-accent-color, #2e2e33, 10%);
   border: 1px solid rgba(255, 255, 255, 0.02);
   border-radius: 999px;
   padding: 12px; }
