@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 gresource_path="/usr/share/gnome-shell/gnome-shell-theme.gresource"
+theme_dir="gnome-shell"
 
 function _check_requirements() {
     if [[ "$(id -u)" -ne 0 ]]; then
@@ -34,8 +35,6 @@ function _restore_gresource() {
 }
 
 function _install_theme() {
-    local theme_dir="gnome-shell"
-
     if [[ ! -f $theme_dir/gnome-shell-theme.gresource.xml ]]; then
         echo "Error: gnome-shell-theme.gresource.xml not found in the current directory."
         return
@@ -45,12 +44,25 @@ function _install_theme() {
     glib-compile-resources $theme_dir/gnome-shell-theme.gresource.xml --target=$gresource_path --sourcedir=$theme_dir
 }
 
+function _bubble() {
+    echo "Bubble"
+    # light
+    sed -i '1803s/background-color: st-mix(-st-accent-color, #ffffff, 10%);/background-color: transparent;/' $theme_dir/gnome-shell-light.css
+    sed -i '1811s/background-color: transparent;/background-color: st-mix(-st-accent-color, #ffffff, 10%);/' $theme_dir/gnome-shell-light.css
+    # dark
+    sed -i '1803s/background-color: st-mix(-st-accent-color, #0f0f0f, 10%);/background-color: transparent;/' $theme_dir/gnome-shell-dark.css
+    sed -i '1810s/background-color: transparent;/background-color: st-mix(-st-accent-color, #0f0f0f, 10%);/' $theme_dir/gnome-shell-dark.css
+}
+
 function _main() {
     if [[ "$1" == "restore" ]]; then
         _restore_gresource
         exit 0
     fi
     _check_requirements
+    if [[ "$1" == "bubble" ]]; then
+        _bubble
+    fi
     _backup_gresource
     _install_theme
     echo "Installation complete."

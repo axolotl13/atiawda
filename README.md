@@ -29,6 +29,12 @@ chmod +x install.sh
 ./install.sh
 ```
 
+or "bubble" variant:
+
+```bash
+./install.sh bubble
+```
+
 4. Logout for changes to take effect.
 
 ## Uninstallation
