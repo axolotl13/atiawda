@@ -42,3 +42,10 @@ or "bubble" variant:
 ```bash
 ./install.sh restore
 ```
+
+## Credits
+
+[Tinted-shell](https://github.com/pakovm-git/tinted-shell)
+
+## Donate
+[PayPal](https://www.paypal.com/donate/?hosted_button_id=WC2EZFF797Y5J)
