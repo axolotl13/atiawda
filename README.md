@@ -1,3 +1,5 @@
+
+
 # Atiawda Gnome Shell theme
 
 ## Screenshots
@@ -22,7 +24,7 @@ git clone https://github.com/axolotl13/atiawda.git
 cd atiawda
 ```
 
-3. Run the installation script (root privileges may be required):
+3. Run the installation script (must be run as root):
 
 ```bash
 chmod +x install.sh
